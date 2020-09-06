@@ -1,11 +1,16 @@
 {
   "name": "@rxjs-stuff/marbles",
-  "version": "1.0.0-next.1",
-  "main": "index.js",
+  "version": "1.0.0-next.2",
   "author": "Daniel Schaffer <dan@dandoes.net>",
   "license": "MIT",
+  "main": "lib/index.js",
+  "type": "module",
+  "types": "lib/index.d.ts",
   "scripts": {
     "build": "tsc",
+    "copy:d.ts": "cp -r ./lib/@types ./.dist/lib",
+    "copy:package.json": "cp package.json ./.dist",
+    "postbuild": "yarn copy:package.json; yarn copy:d.ts",
     "test": "mocha"
   },
   "peerDependencies": {

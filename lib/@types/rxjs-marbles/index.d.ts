@@ -1,1 +1,1 @@
-export * from './src/@rxjs-stuff/marbles'
+export * from './src/rxjs-marbles'
