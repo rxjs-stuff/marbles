@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "rootDir": ".",
+    "outDir": ".dist",
+    "target": "ES2018",
+    "lib": [
+      "ES2020"
+    ],
+    "declaration": true,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "strictBindCallApply": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "@rxjs-stuff/marbles": ["./lib"],
+      "@rxjs-stuff/marbles/*": ["./lib/*"],
+      "rxjs-internal/*": ["./node_modules/rxjs/internal/*"]
+    },
+    "typeRoots": [
+      "./node_modules/@types",
+      "./lib/@types"
+    ]
+  }
+}
