@@ -8,7 +8,7 @@
   "types": "lib/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "copy:d.ts": "cp -r ./lib/@types ./.dist/lib",
+    "copy:d.ts": "cp -r ./lib/@types ./.dist",
     "copy:package.json": "cp package.json ./.dist",
     "postbuild": "yarn copy:package.json; yarn copy:d.ts",
     "test": "mocha"
