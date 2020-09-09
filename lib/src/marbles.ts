@@ -1,5 +1,5 @@
 import { Observable, Subject } from 'rxjs'
-import { SubscriptionLog } from 'rxjs-internal/testing/SubscriptionLog'
+import { SubscriptionLog } from 'rxjs/internal/testing/SubscriptionLog'
 
 import { ContextualTestScheduler } from './contextual-test-scheduler'
 import { MarbleKey, MarbleValues } from './types'
@@ -31,10 +31,14 @@ export interface MarblesHelpersStatic extends MarblesHelpers {
   run(fn: (helpers?: MarblesHelpers) => void): void
 }
 
-type MarblesHelpersInternal = { -readonly [TProp in keyof MarblesHelpers]: MarblesHelpers[TProp] } & { scheduler: ContextualTestScheduler }
-const MarblesHelpersInternal: MarblesHelpersInternal = {} as any
+type MarblesHelpersInternal = { -readonly [TProp in keyof MarblesHelpers]: MarblesHelpers[TProp] } & { scheduler: ContextualTestScheduler } & { id: any }
+const MarblesHelpersInternal: MarblesHelpersInternal = { id: Math.random() } as any
 
 class MarblesHelpersImpl implements MarblesHelpersStatic {
+
+  private get id() {
+    return MarblesHelpersInternal.id
+  }
 
   private assertDeepEqual: AssertDeepEqualFn
 

@@ -1,5 +1,5 @@
 import { isObservable, Observable, Operator, Subscriber, TeardownLogic, UnaryFunction } from 'rxjs'
-import { SubscriptionLog } from 'rxjs-internal/testing/SubscriptionLog'
+import { SubscriptionLog } from 'rxjs/internal/testing/SubscriptionLog'
 import { TestScheduler } from 'rxjs/testing'
 
 export type SubscriptionLoggedObservable<T> = Observable<T> & { subscriptions: SubscriptionLog[] }

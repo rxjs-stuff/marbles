@@ -1,4 +1,3 @@
-import * as Chai from 'chai'
 import { expect, util } from 'chai'
 import { isObservable } from 'rxjs'
 
@@ -70,6 +69,8 @@ export const chaiMarbles = (chai: Chai.ChaiStatic, utils: Chai.ChaiUtils) => {
       return _super.call(this, expected)
     }
   })
+
+  Object.assign(chai.Assertion.prototype, { __chai_marbles_wuz_here: true })
 
 }
 

@@ -11,5 +11,9 @@ module.exports = {
   spec: [
     'lib/**/*.spec.ts',
     'lib/**/index.ts',
+  ],
+  exclude: [
+    'lib/**/browser.ts',
+    'lib/karma/*',
   ]
 }

@@ -1,1 +1,1 @@
-export { mochaMarbles, MochaMarblesConfig } from './src/mocha-marbles'
+export { MochaMarblesConfig } from './src/mocha-marbles-config'

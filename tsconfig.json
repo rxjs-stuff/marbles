@@ -14,18 +14,19 @@
     "noImplicitAny": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
+    "resolveJsonModule": true,
     "strictBindCallApply": true,
     "skipLibCheck": true,
     "sourceMap": true,
     "baseUrl": ".",
     "paths": {
       "@rxjs-stuff/marbles": ["./lib"],
-      "@rxjs-stuff/marbles/*": ["./lib/*"],
-      "rxjs-internal/*": ["./node_modules/rxjs/internal/*"]
+      "@rxjs-stuff/marbles/*": ["./lib/*"]
     },
     "typeRoots": [
       "./node_modules/@types",
       "./lib/@types"
     ]
-  }
+  },
+  "exclude": ["./.dist/**/*"]
 }
