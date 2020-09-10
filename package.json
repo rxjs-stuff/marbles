@@ -4,9 +4,9 @@
   "author": "Daniel Schaffer <dan@dandoes.net>",
   "license": "MIT",
   "main": "index.js",
-  "types": "@types/rxjs-marbles/index.d.ts",
+  "types": "index.d.ts",
   "scripts": {
-    "build": "yarn build:node; yarn build:browser",
+    "build": "yarn build:node",
     "build:node": "tsc -p tsconfig.build.json",
     "build:browser": "webpack --config webpack.config.build.js",
     "copy:d.ts": "cp -r ./lib/@types ./.dist",

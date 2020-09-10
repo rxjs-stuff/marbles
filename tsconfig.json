@@ -24,8 +24,8 @@
       "@rxjs-stuff/marbles/*": ["./lib/*"]
     },
     "typeRoots": [
-      "./node_modules/@types",
-      "./lib/@types"
+      "./lib/@types",
+      "./node_modules/@types"
     ]
   },
   "exclude": ["./.dist/**/*"]

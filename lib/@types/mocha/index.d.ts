@@ -1,5 +1,4 @@
-import * as chai from 'chai'
-import * as mocha from 'mocha'
+import 'mocha'
 import { MarblesHelpers } from '@rxjs-stuff/marbles'
 
 declare global {
@@ -33,14 +32,5 @@ declare global {
       noMarbles: TestFunction
     }
 
-  }
-
-  export namespace Chai {
-    interface Assertion {
-      subscribedWith(...subscriptionMarbles: string[]): Assertion
-      subscription(subscriptionMarbles: string): Assertion
-      marbleValues(values: any): Assertion
-      originalContext(context: any): Assertion
-    }
   }
 }
