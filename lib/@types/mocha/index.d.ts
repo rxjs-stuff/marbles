@@ -32,5 +32,9 @@ declare global {
       noMarbles: TestFunction
     }
 
+    interface Suite {
+      marblesEnabled?: boolean
+    }
+
   }
 }
