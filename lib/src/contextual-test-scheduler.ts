@@ -1,9 +1,9 @@
 import { Observable } from 'rxjs'
 import { TestScheduler } from 'rxjs/testing'
 import { SubscriptionLog } from 'rxjs/internal/testing/SubscriptionLog'
-import { subscriptionLogsToBeFn } from 'rxjs/internal/testing/TestScheduler'
-import { observableToBeFn } from 'rxjs/internal/testing/TestScheduler'
-import { AssertDeepEqualFn } from '@rxjs-stuff/marbles'
+import { observableToBeFn, subscriptionLogsToBeFn } from 'rxjs/internal/testing/TestScheduler'
+
+import { AssertDeepEqualFn } from './marbles'
 
 interface ContextualFlushableTest {
   ready: boolean

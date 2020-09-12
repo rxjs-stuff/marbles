@@ -1,19 +1,21 @@
-import { Observable, Subject } from 'rxjs'
+import { Observable } from 'rxjs'
+import { ColdObservable } from 'rxjs/internal/testing/ColdObservable'
+import { HotObservable } from 'rxjs/internal/testing/HotObservable'
 import { SubscriptionLog } from 'rxjs/internal/testing/SubscriptionLog'
 
 import { ContextualTestScheduler } from './contextual-test-scheduler'
-import { MarbleKey, MarbleValues } from './types'
+import { MarbleValues } from './types'
 
 export interface AssertDeepEqualFn {
   (actual: any, expected: any, context?: any): boolean | void
 }
 
-export interface CreateHotObservable<T = MarbleKey> {
-  (marbles: string, values?: MarbleValues<T>, error?: any): Subject<T>
+export interface CreateHotObservable {
+  <T>(marbles: string, values?: MarbleValues<T>, error?: any): HotObservable<T>
 }
 
-export interface CreateColdObservable<T = MarbleKey> {
-  (marbles: string, values?: MarbleValues<T>, error?: any): Subject<T>
+export interface CreateColdObservable {
+  <T>(marbles: string, values?: MarbleValues<T>, error?: any): ColdObservable<T>
 }
 
 export interface MarblesHelpers {
@@ -31,19 +33,15 @@ export interface MarblesHelpersStatic extends MarblesHelpers {
   run(fn: (helpers?: MarblesHelpers) => void): void
 }
 
-type MarblesHelpersInternal = { -readonly [TProp in keyof MarblesHelpers]: MarblesHelpers[TProp] } & { scheduler: ContextualTestScheduler } & { id: any }
-const MarblesHelpersInternal: MarblesHelpersInternal = { id: Math.random() } as any
+type MarblesHelpersInternal = { -readonly [TProp in keyof MarblesHelpers]: MarblesHelpers[TProp] } & { scheduler: ContextualTestScheduler }
+const MarblesHelpersInternal: MarblesHelpersInternal = {} as any
 
 class MarblesHelpersImpl implements MarblesHelpersStatic {
-
-  private get id() {
-    return MarblesHelpersInternal.id
-  }
 
   private assertDeepEqual: AssertDeepEqualFn
 
   public get cold(): CreateColdObservable {
-    return (marbles: string): any => MarblesHelpersInternal.cold(marbles)
+    return <T>(marbles: string, marbleValues?: MarbleValues<T>): any => MarblesHelpersInternal.cold(marbles, marbleValues)
   }
 
   public get expectObservable(): typeof ContextualTestScheduler.prototype.expectObservable {
@@ -57,7 +55,7 @@ class MarblesHelpersImpl implements MarblesHelpersStatic {
   }
 
   public get hot(): CreateHotObservable {
-    return (marbles: string) => MarblesHelpersInternal.hot(marbles)
+    return <T>(marbles: string, marbleValues?: MarbleValues<T>) => MarblesHelpersInternal.hot(marbles, marbleValues)
   }
 
   public get scheduler(): ContextualTestScheduler {
