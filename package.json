@@ -1,6 +1,6 @@
 {
   "name": "@rxjs-stuff/marbles",
-  "version": "1.0.0-next.6",
+  "version": "1.0.0-next.7",
   "author": "Daniel Schaffer <dan@dandoes.net>",
   "license": "MIT",
   "main": "index.js",
@@ -11,7 +11,8 @@
     "build:browser": "webpack --config webpack.config.build.js",
     "copy:d.ts": "cp -r ./lib/@types ./.dist",
     "copy:package.json": "cp package.json ./.dist",
-    "postbuild": "yarn copy:package.json; yarn copy:d.ts",
+    "copy:md": "cp *.md ./.dist",
+    "postbuild": "yarn copy:package.json; yarn copy:d.ts; yarn copy:md",
     "test:node": "mocha",
     "test:browser": "karma start",
     "test": "yarn test:node; yarn test:browser --single-run"
