@@ -7,7 +7,10 @@ function setUpMarblesContext(config: MochaMarblesConfig, context: any): void {
   function makeMarblesTest(test: Function): Function {
     return function marblesTest(title: string, fn: (helpers: MarblesHelpers) => void): void {
       if (typeof fn === 'function') {
-        return test(title, function (this: any) {
+        return test(title, function (this: Mocha.Context) {
+          if (!this.test.parent.marblesEnabled) {
+            return fn.call(this, undefined)
+          }
           if (typeof config.beforeEach === 'function') {
             config.beforeEach(MarblesHelpers, this)
           }
@@ -36,7 +39,7 @@ function setUpMarblesContext(config: MochaMarblesConfig, context: any): void {
       context.xit.noMarbles = xit
 
       return action(title, function (this: Mocha.Suite) {
-        this.marblesEnabled = typeof marblesEnabled === 'undefined' ? this.marblesEnabled : marblesEnabled
+        this.marblesEnabled = typeof marblesEnabled === 'undefined' ? this.parent.marblesEnabled : marblesEnabled
         if (this.marblesEnabled) {
           marblesTesting()
           return fn.call(this, MarblesHelpers)
