@@ -1,6 +1,6 @@
 {
   "name": "@rxjs-stuff/marbles",
-  "version": "1.0.0-next.9",
+  "version": "1.0.0-next.10",
   "author": "Daniel Schaffer <dan@dandoes.net>",
   "license": "MIT",
   "main": "index.js",
@@ -13,14 +13,14 @@
     "copy:package.json": "cp package.json ./.dist",
     "copy:md": "cp *.md ./.dist",
     "postbuild": "yarn copy:package.json; yarn copy:d.ts; yarn copy:md",
-    "prepublish": "yarn build",
+    "prepublish:dist": "yarn version && yarn build",
+    "publish:dist": "cd .dist && yarn publish",
     "test:node": "mocha",
     "test:browser": "karma start",
     "test": "yarn test:node; yarn test:browser --single-run"
   },
   "publishConfig": {
-    "access": "public",
-    "directory": ".dist"
+    "access": "public"
   },
   "peerDependencies": {
     "chai": "^4.2.0",
