@@ -1,6 +1,21 @@
 {
   "name": "@rxjs-stuff/marbles",
   "version": "1.0.0-next.10",
+  "description": "A set of plugins that provide a natural feeling integration with Mocha and Chai for RxJS \"marbles\" testing.",
+  "keywords": [
+    "rxjs-marbles",
+    "rxjs",
+    "marbles",
+    "rxjs marbles",
+    "rxjs marbles testing",
+    "marbles testing",
+    "mocha",
+    "chai",
+    "mocha marbles",
+    "chai marbles",
+    "karma",
+    "rxjs testing"
+  ],
   "author": "Daniel Schaffer <dan@dandoes.net>",
   "license": "MIT",
   "main": "index.js",
