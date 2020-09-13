@@ -1,6 +1,6 @@
 {
   "name": "@rxjs-stuff/marbles",
-  "version": "1.0.0-next.10",
+  "version": "1.0.0-next.11",
   "description": "A set of plugins that provide a natural feeling integration with Mocha and Chai for RxJS \"marbles\" testing.",
   "keywords": [
     "rxjs-marbles",
