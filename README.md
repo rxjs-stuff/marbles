@@ -203,3 +203,26 @@ describe.marbles('simple example', ({ hot }) => {
   })  
 }) 
 ```
+
+### Utilities
+
+#### marbleValues
+
+Use the `marbleValues` helper function to generate typed marble values objects to use with the
+`cold` and `hot` observable generators and `with.marbleValues(...)` language chain.
+
+```typescript
+// infers type to MarbleValues<string, 'a' | 'b'> // { a: string, b: string }
+const myMarbles = marbleValues({ a: 'foo', b: 'bar' })
+```
+
+**boolean marble values**
+The `booleanMarbles` object includes marble values for working with boolean values.
+
+```typescript
+export const booleanMarbles = marbleValues({
+  f: false,
+  t: true,
+  u: undefined,
+})
+```
