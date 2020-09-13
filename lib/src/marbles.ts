@@ -4,7 +4,7 @@ import { HotObservable } from 'rxjs/internal/testing/HotObservable'
 import { SubscriptionLog } from 'rxjs/internal/testing/SubscriptionLog'
 
 import { ContextualTestScheduler } from './contextual-test-scheduler'
-import { MarbleValues } from './types'
+import { MarbleValues } from './marble-values'
 
 export interface AssertDeepEqualFn {
   (actual: any, expected: any, context?: any): boolean | void

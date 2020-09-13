@@ -1,4 +1,4 @@
-import { marbleValues } from '@rxjs-stuff/marbles'
+import { marbleValues } from './marble-values'
 
 export const booleanMarbles = marbleValues({
   f: false,
