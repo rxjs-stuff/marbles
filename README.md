@@ -1,8 +1,9 @@
 # @rxjs-stuff/marbles
 
-Provides a natural feeling integration with Mocha and Chai for RxJS "marbles" testing.
+`@rxjs-stuff/marbles` provides a natural feeling integration with Mocha and Chai for RxJS "marbles" testing.
 
-See the [RxJS documentation on Marble Tests](https://rxjs-dev.firebaseapp.com/guide/testing/internal-marble-tests) for more information.
+See the [RxJS documentation on Marble Tests](https://rxjs-dev.firebaseapp.com/guide/testing/internal-marble-tests) for
+ more information.
 
 ```typescript
 import { expect } from 'chai'
@@ -18,26 +19,6 @@ describe.marbles('simple example', ({ cold }) => {
 ```
 
 ## Configuration
-
-### TypeScript (NodeJS or Browser)
-Add `node_modules/@rxjs-stuff/marbles/@types` to your `tsconfig.json`'s `typeRoots`:
-
-```json
-{
-  "compilerOptions": {
-    ...
-    "typeRoots": [
-      "node_modules/@rxjs-stuff/marbles/@types",
-      "node_modules/@types"
-    ] 
-  }
-}
-```
-
-`@rxjs-stuff/marbles` augments ambient types from Mocha and Chai in order to add the `.marbles`
-modifier, as well as additional Chai assertions. Since these do not require importing from
-`@rxjs-stuff/marbles` in the modules where those would be referenced, the additional `typeRoots`
-entry is required to allow TypeScript to pick up the augmented types.
 
 ### NodeJS
  
@@ -91,6 +72,25 @@ const context = require.context('./src', true, /\.spec\.ts$/)
 context.keys().map(context)
 ```
 
+### TypeScript (NodeJS or Browser)
+Add `node_modules/@rxjs-stuff/marbles/@types` to your `tsconfig.json`'s `typeRoots`:
+
+```json
+{
+  "compilerOptions": {
+    ...
+    "typeRoots": [
+      "node_modules/@rxjs-stuff/marbles/@types",
+      "node_modules/@types"
+    ] 
+  }
+}
+```
+
+`@rxjs-stuff/marbles` augments ambient types from Mocha and Chai in order to add the `.marbles`
+modifier, as well as additional Chai assertions. Since these do not require importing from
+`@rxjs-stuff/marbles` in the modules where those would be referenced, the additional `typeRoots`
+entry is required to allow TypeScript to pick up the augmented types.
 
 ## Usage
 
@@ -217,6 +217,7 @@ const myMarbles = marbleValues({ a: 'foo', b: 'bar' })
 ```
 
 **boolean marble values**
+
 The `booleanMarbles` object includes marble values for working with boolean values.
 
 ```typescript
