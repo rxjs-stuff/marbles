@@ -105,21 +105,21 @@ instance, as well as calling `TestScheduler.flush` for each test.
 The suite definition function will be passed an object with the same `RunHelpers` utilities provided
 when calling RxJS's `TestScheduler.run`. 
 
-```
+```typescript
 describe.marbles('example', ({ cold, hot }) => {
   ...
 })
 ```
 
 The usual suite definition modifiers are also supported when using `describe.marbles`:
-```
-xdescribe.marbles(..)
-describe.marbles.only(..)
-describe.marbles.skip(..)
+```typescript
+xdescribe.marbles(...)
+describe.marbles.only(...)
+describe.marbles.skip(...)
 ```
 
 To disable marbles testing within a nested suite, use `describe.noMarbles`:
-```
+```typescript
 describe.marbles('marbles tests', () => {
 
   describe.noMarbles('non marbles tests', () => {
